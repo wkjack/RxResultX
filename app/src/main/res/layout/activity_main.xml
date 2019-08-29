@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".demo.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/androidTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="RxResult-支持androidX"
+        android:textSize="18sp"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/androidX_callback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="回调模式"
+        app:layout_constraintStart_toStartOf="@id/androidTv"
+        app:layout_constraintTop_toBottomOf="@id/androidTv" />
+
+    <Button
+        android:id="@+id/androidX_obser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:text="观察者模式"
+        app:layout_constraintStart_toEndOf="@id/androidX_callback"
+        app:layout_constraintTop_toTopOf="@id/androidX_callback" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/showLabelTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="获取的内容:"
+        android:textSize="18sp"
+        android:textColor="#666"
+        app:layout_constraintStart_toStartOf="@id/androidX_callback"
+        app:layout_constraintTop_toBottomOf="@id/androidX_callback" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/showTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textColor="#000"
+        app:layout_constraintStart_toEndOf="@id/showLabelTv"
+        app:layout_constraintTop_toTopOf="@id/showLabelTv" />
+</androidx.constraintlayout.widget.ConstraintLayout>
