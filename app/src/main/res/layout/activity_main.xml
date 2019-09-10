@@ -36,6 +36,24 @@
         app:layout_constraintStart_toEndOf="@id/androidX_callback"
         app:layout_constraintTop_toTopOf="@id/androidX_callback" />
 
+    <Button
+        android:id="@+id/androidX_callback_arouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="回调模式-路由"
+        app:layout_constraintStart_toStartOf="@id/androidX_callback"
+        app:layout_constraintTop_toBottomOf="@id/androidX_callback" />
+
+    <Button
+        android:id="@+id/androidX_obser_arouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="观察者模式-路由"
+        app:layout_constraintStart_toStartOf="@id/androidX_obser"
+        app:layout_constraintTop_toBottomOf="@id/androidX_obser" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/showLabelTv"
         android:layout_width="wrap_content"
@@ -44,8 +62,8 @@
         android:text="获取的内容:"
         android:textSize="18sp"
         android:textColor="#666"
-        app:layout_constraintStart_toStartOf="@id/androidX_callback"
-        app:layout_constraintTop_toBottomOf="@id/androidX_callback" />
+        app:layout_constraintStart_toStartOf="@id/androidX_callback_arouter"
+        app:layout_constraintTop_toBottomOf="@id/androidX_callback_arouter" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/showTv"

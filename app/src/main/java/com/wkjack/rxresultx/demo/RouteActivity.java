@@ -1,27 +1,30 @@
 package com.wkjack.rxresultx.demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class AndroidXActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private int type; // 0(回调) / 1(观察者)
+import com.alibaba.android.arouter.facade.annotation.Route;
+
+@Route(path = "/aaa/bbb")
+public class RouteActivity extends AppCompatActivity {
+
+    private int type = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_android_x);
+        setContentView(R.layout.activity_route);
 
         findViewById(R.id.androidX_back).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("showContent", type == 1 ? "观察者模式数据" : "回调模式数据");
+                intent.putExtra("showContent", type == 1 ? "Arouter观察者返回数据" : "Arouter回调返回数据");
                 setResult(RESULT_OK, intent);
-                AndroidXActivity.this.finish();
+                RouteActivity.this.finish();
             }
         });
 

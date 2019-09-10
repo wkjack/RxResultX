@@ -7,7 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.wkjack.rxresultx.R;
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.wkjack.rxresultx.RxResult;
 import com.wkjack.rxresultx.RxResultCallback;
 import com.wkjack.rxresultx.RxResultInfo;
@@ -62,6 +63,64 @@ public class MainActivity extends AppCompatActivity {
                                 Intent data = resultInfo.getData();
                                 String showContent = data.getStringExtra("showContent");
                                 showTv.setText(showContent);
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onComplete() {
+
+                            }
+                        });
+            }
+        });
+
+        findViewById(R.id.androidX_callback_arouter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Postcard postcard = ARouter.getInstance()
+                        .build("/aaa/bbb")
+                        .withInt("type", 0);
+
+                RxResult.in(MainActivity.this)
+                        .start(postcard, new RxResultCallback() {
+                            @Override
+                            public void onResult(RxResultInfo resultInfo) {
+                                if (resultInfo.getResultCode() == RESULT_OK) {
+                                    Intent data = resultInfo.getData();
+                                    String showContent = data.getStringExtra("showContent");
+                                    showTv.setText(showContent);
+                                }
+                            }
+                        });
+            }
+        });
+
+        findViewById(R.id.androidX_obser_arouter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Postcard postcard = ARouter.getInstance()
+                        .build("/aaa/bbb")
+                        .withInt("type", 1);
+
+                RxResult.in(MainActivity.this)
+                        .start(postcard)
+                        .subscribe(new Observer<RxResultInfo>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
+
+                            }
+
+                            @Override
+                            public void onNext(RxResultInfo resultInfo) {
+                                if (resultInfo.getResultCode() == RESULT_OK) {
+                                    Intent data = resultInfo.getData();
+                                    String showContent = data.getStringExtra("showContent");
+                                    showTv.setText(showContent);
+                                }
                             }
 
                             @Override
