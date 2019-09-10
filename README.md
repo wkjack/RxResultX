@@ -1,5 +1,6 @@
 # RxResult
 Anroid ActivityResult简化处理，支持回调、Rxjava两种方式
+
 1.需要支持Arouter
 
 ```gradle
