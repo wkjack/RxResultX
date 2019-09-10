@@ -1,2 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wkjack.rxresultx" />
+    package="com.wkjack.rxresultx">
+
+    <application>
+        <activity
+            android:name=".RxResultActivity"
+            android:theme="@style/RxResultActivityStyle" />
+    </application>
+
+</manifest>
