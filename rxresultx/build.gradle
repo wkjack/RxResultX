@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 3
-        versionName "1.1.1"
+        versionCode 4
+        versionName "1.2.1"
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -49,7 +49,7 @@ publish {
     userOrg = 'bintrayId'          //bintray.com用户名
     groupId = 'com.wkjack'      //jcenter上的路径
     artifactId = 'RxResultX'     //项目名称
-    publishVersion = '1.1.1'    //版本号
+    publishVersion = '1.2.1'    //版本号
     desc = 'Anroid ActivityResult简化处理，支持回调、Rxjava两种方式'  //描述
     website = 'https://github.com/wkjack/RxResultX'              //网站
 }
