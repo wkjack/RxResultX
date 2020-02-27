@@ -5,7 +5,8 @@
     <application>
         <activity
             android:name=".RxResultActivity"
-            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/RxResultActivityStyle" />
     </application>
 
