@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
+import com.alibaba.android.arouter.facade.service.DegradeService;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 public class RxResultActivity extends AppCompatActivity {
@@ -31,6 +32,10 @@ public class RxResultActivity extends AppCompatActivity {
 
                     @Override
                     public void onLost(Postcard postcard) {
+                        DegradeService degradeService = ARouter.getInstance().navigation(DegradeService.class);
+                        if (null != degradeService) {
+                            degradeService.onLost(RxResultActivity.this, postcard);
+                        }
                         finish();
                     }
 
