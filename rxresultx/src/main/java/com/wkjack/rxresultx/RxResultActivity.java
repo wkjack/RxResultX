@@ -22,9 +22,12 @@ public class RxResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String path = intent.getStringExtra("path");
+        int enterAnim = intent.getIntExtra("enterAnim", -1);
+        int exitAnim = intent.getIntExtra("exitAnim", -1);
 
         ARouter.getInstance().build(path)
                 .with(intent.getExtras())
+                .withTransition(enterAnim, exitAnim)
                 .navigation(this, CODE_AROUT, new NavigationCallback() {
                     @Override
                     public void onFound(Postcard postcard) {

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 29
@@ -39,15 +39,15 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:1.2.2"
 }
 
-/**
- * 上传配置
- */
-publish {
-    repoName="maven"            //仓库名，没有填写时默认仓库是maven
-    userOrg = 'bintrayId'          //bintray.com用户名
-    groupId = 'com.wkjack'      //jcenter上的路径
-    artifactId = 'RxResultX'     //项目名称
-    publishVersion = '1.2.2'    //版本号
-    desc = 'Anroid ActivityResult简化处理，支持回调、Rxjava两种方式'  //描述
-    website = 'https://github.com/wkjack/RxResultX'              //网站
-}
+///**
+// * 上传配置
+// */
+//publish {
+//    repoName="maven"            //仓库名，没有填写时默认仓库是maven
+//    userOrg = 'bintrayId'          //bintray.com用户名
+//    groupId = 'com.wkjack'      //jcenter上的路径
+//    artifactId = 'RxResultX'     //项目名称
+//    publishVersion = '1.2.2'    //版本号
+//    desc = 'Anroid ActivityResult简化处理，支持回调、Rxjava两种方式'  //描述
+//    website = 'https://github.com/wkjack/RxResultX'              //网站
+//}

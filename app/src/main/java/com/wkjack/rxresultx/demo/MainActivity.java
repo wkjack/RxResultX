@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Postcard postcard = ARouter.getInstance()
                         .build("/aaa/bbb")
-                        .withInt("type", 0);
+                        .withInt("type", 0)
+                        .withTransition(R.anim.bottom_in, R.anim.bottom_silent);
 
                 RxResult.in(MainActivity.this)
                         .start(postcard, new RxResultCallback() {

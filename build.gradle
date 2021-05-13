@@ -7,12 +7,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-
-        //*********************  添加的配置  ****************************
-        //bintray-release目前支持的gradle不要超过3.3，即上面一行代码的插件版本
-        classpath 'com.novoda:bintray-release:0.9.1'
-        //*********************  添加的配置  ****************************
+        classpath 'com.android.tools.build:gradle:4.1.1'
     }
 }
 
@@ -22,29 +17,8 @@ allprojects {
         jcenter()
         
     }
-
-    //*********************  添加的配置  ****************************
-    gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-        }
-    }
-    //*********************  添加的配置  ****************************
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-//*********************  添加的配置  ****************************
-//依赖中有中文注释,防止乱码
-allprojects {
-    tasks.withType(Javadoc) {
-        options {
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
-        }
-    }
-}
-//*********************  添加的配置  ****************************
