@@ -30,7 +30,7 @@ Anroid ActivityResult简化处理，支持回调、Rxjava两种方式
 
 	```
 	dependencies {
-		api 'com.github.wkjack:RxResultX::1.3.0'
+		implementation 'com.github.wkjack:RxResultX:1.4.0'
 		api 'io.reactivex.rxjava2:rxjava:2.1.7'
 		
 		//Arouter
