@@ -7,17 +7,17 @@ Anroid ActivityResult简化处理，支持回调、Rxjava两种方式
     buildscript {
 	    repositories {
 	        google()
-	        jcenter()
+	        mavenCentral()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:4.1.1'
+            classpath 'com.android.tools.build:gradle:4.1.3'
         }
 	}
 
     allprojects {
         repositories {
             google()
-            jcenter()
+            mavenCentral()
             maven { url 'https://jitpack.io' }
         }
     }
@@ -30,7 +30,7 @@ Anroid ActivityResult简化处理，支持回调、Rxjava两种方式
 
 	```
 	dependencies {
-		implementation 'com.github.wkjack:RxResultX:1.4.0'
+		implementation 'com.github.wkjack:RxResultX:1.4.1'
 		api 'io.reactivex.rxjava2:rxjava:2.1.7'
 		
 		//Arouter
