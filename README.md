@@ -8,6 +8,7 @@ Anroid ActivityResult简化处理，支持回调、Rxjava两种方式
 	    repositories {
 	        google()
 	        mavenCentral()
+	        maven { url 'https://maven.aliyun.com/repository/public' }
         }
         dependencies {
             classpath 'com.android.tools.build:gradle:4.1.3'
@@ -18,6 +19,7 @@ Anroid ActivityResult简化处理，支持回调、Rxjava两种方式
         repositories {
             google()
             mavenCentral()
+            maven { url 'https://maven.aliyun.com/repository/public' }
             maven { url 'https://jitpack.io' }
         }
     }
