@@ -17,22 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/androidX_testFinish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="测试页面关闭后跳转"
-        app:layout_constraintStart_toStartOf="@id/androidTv"
-        app:layout_constraintTop_toBottomOf="@id/androidTv" />
-
-    <Button
         android:id="@+id/androidX_callback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="回调模式"
-        app:layout_constraintStart_toStartOf="@id/androidX_testFinish"
-        app:layout_constraintTop_toBottomOf="@id/androidX_testFinish" />
+        app:layout_constraintStart_toStartOf="@id/androidTv"
+        app:layout_constraintTop_toBottomOf="@id/androidTv" />
 
     <Button
         android:id="@+id/androidX_obser"

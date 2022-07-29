@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RouteActivity"/>
+        <activity android:name=".SecondActivity"/>
     </application>
 
 </manifest>

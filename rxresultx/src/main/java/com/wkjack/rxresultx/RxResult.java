@@ -1,6 +1,9 @@
 package com.wkjack.rxresultx;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -19,20 +22,26 @@ public final class RxResult {
     }
 
     private RxResultFragment getFragment(FragmentActivity activity) {
-        if (activity == null) {
-            throw new IllegalArgumentException("activity is null");
+        if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
+            return null;
         }
-
         RxResultFragment activityResultFragment = (RxResultFragment) activity.getSupportFragmentManager().findFragmentByTag(TAG);
         if (activityResultFragment == null) {
             activityResultFragment = new RxResultFragment();
             FragmentManager fragmentManager = activity.getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .add(activityResultFragment, TAG)
-                    .commitAllowingStateLoss();
-            fragmentManager.executePendingTransactions();
+            if (fragmentManager.isDestroyed()) {
+                return null;
+            }
+            try {
+                fragmentManager.beginTransaction()
+                        .add(activityResultFragment, TAG)
+                        .commitAllowingStateLoss();
+                fragmentManager.executePendingTransactions();
+                return activityResultFragment;
+            } catch (IllegalStateException ignored) {
+            }
         }
-        return activityResultFragment;
+        return null;
     }
 
 
@@ -42,8 +51,11 @@ public final class RxResult {
      * @param intent   意图
      * @param callback 回调
      */
-    public final void start(Intent intent, RxResultCallback callback) {
-        fragment.startResult(intent, callback);
+    public void start(Intent intent, RxResultCallback callback) {
+        Log.e("RxResult", "start-1-->" + (fragment == null));
+        if (fragment != null) {
+            fragment.startResult(intent, callback);
+        }
     }
 
     /**
@@ -52,8 +64,13 @@ public final class RxResult {
      * @param intent 回调
      * @return 返回被观察对象
      */
-    public final Observable<RxResultInfo> start(Intent intent) {
-        return fragment.startResult(intent);
+    public Observable<RxResultInfo> start(Intent intent) {
+        Log.e("RxResult", "start-2-->" + (fragment == null));
+        if (fragment != null) {
+            return fragment.startResult(intent);
+        }
+        RxResultInfo rxResultInfo = new RxResultInfo(Activity.RESULT_CANCELED, null);
+        return Observable.just(rxResultInfo);
     }
 
     /**
@@ -62,8 +79,13 @@ public final class RxResult {
      * @param postcard 路由信息
      * @return 返回被观察对象
      */
-    public final Observable<RxResultInfo> start(Postcard postcard) {
-        return fragment.startResult(postcard);
+    public Observable<RxResultInfo> start(Postcard postcard) {
+        Log.e("RxResult", "start-3-->" + (fragment == null));
+        if (fragment != null) {
+            return fragment.startResult(postcard);
+        }
+        RxResultInfo rxResultInfo = new RxResultInfo(Activity.RESULT_CANCELED, null);
+        return Observable.just(rxResultInfo);
     }
 
     /**
@@ -72,8 +94,11 @@ public final class RxResult {
      * @param postcard 路由信息
      * @param callback 回调
      */
-    public final void start(Postcard postcard, RxResultCallback callback) {
-        fragment.startResult(postcard, callback);
+    public void start(Postcard postcard, RxResultCallback callback) {
+        Log.e("RxResult", "start-4-->" + (fragment == null));
+        if (fragment != null) {
+            fragment.startResult(postcard, callback);
+        }
     }
 
 
