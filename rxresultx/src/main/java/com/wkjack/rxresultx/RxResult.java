@@ -25,21 +25,22 @@ public final class RxResult {
         if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
             return null;
         }
-        RxResultFragment activityResultFragment = (RxResultFragment) activity.getSupportFragmentManager().findFragmentByTag(TAG);
-        if (activityResultFragment == null) {
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        if (fragmentManager.isDestroyed()) {
+            return null;
+        }
+        RxResultFragment activityResultFragment = (RxResultFragment) fragmentManager.findFragmentByTag(TAG);
+        if (activityResultFragment != null) {
+            return activityResultFragment;
+        }
+        try {
             activityResultFragment = new RxResultFragment();
-            FragmentManager fragmentManager = activity.getSupportFragmentManager();
-            if (fragmentManager.isDestroyed()) {
-                return null;
-            }
-            try {
-                fragmentManager.beginTransaction()
-                        .add(activityResultFragment, TAG)
-                        .commitAllowingStateLoss();
-                fragmentManager.executePendingTransactions();
-                return activityResultFragment;
-            } catch (IllegalStateException ignored) {
-            }
+            fragmentManager.beginTransaction()
+                    .add(activityResultFragment, TAG)
+                    .commitAllowingStateLoss();
+            fragmentManager.executePendingTransactions();
+            return activityResultFragment;
+        } catch (IllegalStateException ignored) {
         }
         return null;
     }
