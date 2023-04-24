@@ -21,9 +21,9 @@ public class RxResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rx_result);
 
         Intent intent = getIntent();
-        String path = intent.getStringExtra("path");
-        int enterAnim = intent.getIntExtra("enterAnim", -1);
-        int exitAnim = intent.getIntExtra("exitAnim", -1);
+        String path = intent.getStringExtra("_rx_path");
+        int enterAnim = intent.getIntExtra("_rx_enterAnim", -1);
+        int exitAnim = intent.getIntExtra("_rx_exitAnim", -1);
 
         ARouter.getInstance().build(path)
                 .with(intent.getExtras())

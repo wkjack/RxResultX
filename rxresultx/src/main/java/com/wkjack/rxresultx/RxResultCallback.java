@@ -8,7 +8,7 @@ public interface RxResultCallback {
     /**
      * 回调
      *
-     * @param activityResultInfo 回调信息
+     * @param resultInfo 回调信息
      */
-    void onResult(RxResultInfo activityResultInfo);
+    void onResult(RxResultInfo resultInfo);
 }

@@ -85,10 +85,10 @@ public class RxResultFragment extends Fragment {
 
     private Intent postcardToIntent(Postcard postcard){
         Intent intent = new Intent(getContext(), RxResultActivity.class);
-        intent.putExtra("path", postcard.getPath());
-        intent.putExtra("flag", postcard.getFlags());
-        intent.putExtra("enterAnim", postcard.getEnterAnim());
-        intent.putExtra("exitAnim", postcard.getExitAnim());
+        intent.putExtra("_rx_path", postcard.getPath());
+        intent.putExtra("_rx_flag", postcard.getFlags());
+        intent.putExtra("_rx_enterAnim", postcard.getEnterAnim());
+        intent.putExtra("_rx_exitAnim", postcard.getExitAnim());
         intent.putExtras(postcard.getExtras());
         return intent;
     }
